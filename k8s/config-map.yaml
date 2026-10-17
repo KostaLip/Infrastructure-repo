@@ -1,8 +1,0 @@
-apiVersion: v1
-data:
-  test: test
-kind: ConfigMap
-metadata:
-  creationTimestamp: null
-  name: test-cm
-  namespace: test
