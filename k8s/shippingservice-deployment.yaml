@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: shippingservice-deployment
+  name: shippingservice-deployment
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shippingservice-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: shippingservice-deployment
+    spec:
+      containers:
+      - image: kostalip/shippingservice:local
+        name: shippingservice
+        resources: {}
+status: {}

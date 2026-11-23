@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: paymentservice-deployment
+  name: paymentservice-deployment
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: paymentservice-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: paymentservice-deployment
+    spec:
+      containers:
+      - image: kostalip/paymentservice:local
+        name: paymentservice
+        envFrom:
+        - configMapRef:
+            name: paymentservice-cm
+        resources: {}
+status: {}

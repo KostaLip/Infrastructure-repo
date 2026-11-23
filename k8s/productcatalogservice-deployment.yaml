@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: productcatalogservice-deployment
+  name: productcatalogservice-deployment
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productcatalogservice-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: productcatalogservice-deployment
+    spec:
+      containers:
+      - image: kostalip/productcatalogservice:local
+        name: productcatalogservice
+        resources: {}
+status: {}

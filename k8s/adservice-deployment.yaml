@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: adservice-deployment
+  name: adservice-deployment
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adservice-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: adservice-deployment
+    spec:
+      containers:
+      - image: kostalip/adservice:local
+        name: adservice
+        resources: {}
+status: {}

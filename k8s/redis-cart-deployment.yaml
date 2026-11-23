@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: redis-cart-deployment
+  name: redis-cart-deployment
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-cart-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: redis-cart-deployment
+    spec:
+      containers:
+      - image: kostalip/redis:alpine
+        name: redis
+        volumeMounts:
+        - name: redis-data
+          mountPath: /data
+        resources: {}
+      volumes:
+      - name: redis-data
+        persistentVolumeClaim:
+          claimName: redis-pvc
+status: {}

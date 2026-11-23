@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: emailservice-deployment
+  name: emailservice-deployment
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emailservice-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: emailservice-deployment
+    spec:
+      containers:
+      - image: kostalip/emailservice:local
+        name: emailservice
+        resources: {}
+status: {}

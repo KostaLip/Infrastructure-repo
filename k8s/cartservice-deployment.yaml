@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: cartservice-deployment
+  name: cartservice-deployment
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cartservice-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: cartservice-deployment
+    spec:
+      containers:
+      - image: kostalip/cartservice:local
+        name: cartservice
+        envFrom:
+        - configMapRef:
+            name: cartservice-cm
+        resources: {}
+status: {}

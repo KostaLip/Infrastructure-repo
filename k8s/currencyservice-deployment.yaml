@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: currencyservice-deployment
+  name: currencyservice-deployment
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: currencyservice-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: currencyservice-deployment
+    spec:
+      containers:
+      - image: kostalip/currencyservice:local
+        name: currencyservice
+        envFrom:
+        - configMapRef:
+            name: currencyservice-cm
+        resources: {}
+status: {}

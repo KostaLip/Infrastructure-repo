@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: checkoutservice-deployment
+  name: checkoutservice-deployment
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: checkoutservice-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: checkoutservice-deployment
+    spec:
+      containers:
+      - image: kostalip/checkoutservice:local
+        name: checkoutservice
+        envFrom:
+        - configMapRef:
+            name: checkoutservice-cm
+        resources: {}
+status: {}

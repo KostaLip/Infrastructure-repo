@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: recommendationservice-deployment
+  name: recommendationservice-deployment
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recommendationservice-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: recommendationservice-deployment
+    spec:
+      containers:
+      - image: kostalip/recommendationservice:local
+        name: recommendationservice
+        envFrom:
+        - configMapRef:
+            name: recommendationservice-cm
+        resources: {}
+status: {}

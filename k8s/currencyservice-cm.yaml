@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  DISABLE_PROFILER: "1"
+  PORT: "7000"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: currencyservice-cm
+  namespace: shop
