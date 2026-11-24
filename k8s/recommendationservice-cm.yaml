@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  PRODUCT_CATALOG_SERVICE_ADDR: productcatalogservice:3550
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: recommendationservice-cm
+  namespace: shop
